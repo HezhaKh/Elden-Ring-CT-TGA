@@ -1,5 +1,9 @@
 # Changelog
 ## [Unreleased]
+### Fixed
+ - Removed ID `3252` (Loretta) from "Kill all mobs"
+ - by [Axd1x8a](https://github.com/FeeeeK)
+   - Kill all mobs not working in some cases
 
 ## [v1.17.0] - 2025-08-04
 ### Added
