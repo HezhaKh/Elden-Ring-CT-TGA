@@ -35,9 +35,9 @@ local items = {
 for _,id in ipairs(items) do
 ]]
 
-for 8380001, 8380012 do
+for id=8380001, 8380012 do
 	local idx = getItemIdx(id + 0x40000000)
-	for i=22,37 do
+	for i=22, 37 do
 		if readInteger(ChrAsm + i * 4) - 0x40000000 == id then
 			unequipItem(i)
 		end
