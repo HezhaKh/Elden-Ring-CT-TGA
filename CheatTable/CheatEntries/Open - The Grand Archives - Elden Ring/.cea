@@ -515,7 +515,7 @@ if tga.config.checkGameVersion and current_game_ver ~= game_ver then
     ))
 end
 
-if tga.config.checkCEVersion and getCEVersion() < ce_ver or getCEVersion() > ce_max_ver then
+if tga.config.checkCEVersion and (getCEVersion() < ce_ver or getCEVersion() > ce_max_ver) then
     local ver_str = string.format("Only Cheat Engine versions between %s and %s are officially supported by The Grand Archives.\nFuture versions are closed-source, and have not been checked for safety.\nWe provide instructions for installing 7.5 on our GitHub. Go there now?",ce_ver,ce_max_ver,ce_ver)
     local dl_url = string.format("https://github.com/The-Grand-Archives/Elden-Ring-CT-TGA?tab=readme-ov-file#installing-cheat-engine")
     if messageDialog("CE Version Check", ver_str, mtError, mbYes, mbNo)==mrYes then
