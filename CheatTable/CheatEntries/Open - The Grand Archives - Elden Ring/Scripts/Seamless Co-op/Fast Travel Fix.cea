@@ -1,0 +1,174 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+local ON, OFF = true, false
+local pending_reload = false
+
+local function EventFlag(flag)
+	local state = ef.getFlag(flag):getValue()
+	return state
+end
+
+local function SetEventFlag(flag, state)
+	if state == nil then state = ON end
+	ef.setFlag(flag, state)
+	print(string.format(" --> Flag %d set to %s", flag, tostring(state)))
+end
+
+local function ReloadCharacter()
+	print("Requesting a save...")
+	writeByte("[GameMan]+B72", 1)
+	print("Waiting for save to complete...")
+	charaReloadTimer = createTimer(getMainForm())
+	charaReloadTimer.Interval = 100
+	charaReloadTimer.OnTimer = function(timer)
+		local busy = readByte("[GameMan]+B80")
+		if busy == 0 then
+			print("Save complete. Reloading character.")
+			writeInteger("[GameMan]+B78",readInteger("[GameMan]+AC0"))
+			print("--- Fast Travel Fix completed ---")
+			charaReloadTimer.destroy()
+		end
+	end
+end
+
+local flagRules = {
+	{
+		name = "Radahn Meteor (Radahn is Alive)",
+		enabled = true,
+		needs_reload = true,
+		condition = function()
+			return (EventFlag(310) and not EventFlag(9130))
+		end,
+		fix = function()
+			SetEventFlag(310, OFF)  -- Natural disaster: Green meteorite - 天変地異：緑隕石
+			SetEventFlag(9417, OFF) -- Red mark on the map
+		end
+	},
+	{
+		name = "Radahn Grace (Radahn is Dead)",
+		enabled = true,
+		condition = function()
+			return (EventFlag(310) and EventFlag(9130) and not (EventFlag(76422) or EventFlag(73016)))
+		end,
+		fix = function()
+			SetEventFlag(76422)     -- Grace: Starscourge Radahn
+		end
+	},
+	{
+		name = "Morgott",
+		enabled = true,
+		needs_reload = true,
+		condition = function()
+			return (EventFlag(11000800) and not (EventFlag(11000500) and EventFlag(11000501)))
+		end,
+		fix = function()
+			SetEventFlag(11000500)  -- Thorns touched
+			SetEventFlag(11000501)  -- Post-fight rested at grace
+		end
+	},
+	{
+		name = "Radagon",
+		enabled = true,
+		condition = function()
+			return (EventFlag(9123) and not (EventFlag(121) or EventFlag(71900)))
+		end,
+		fix = function()
+			SetEventFlag(71900)     -- Grace: Fractured Marika
+		end
+	},
+	{
+		name = "Ranni",
+		enabled = true,
+		condition = function()
+		  return EventFlag(1034500738) -- Wall around Ranni's Rise
+		end,
+		fix = function()
+			-- Choosing to enter Ranni's service
+			SetEventFlag(1034509410)
+			SetEventFlag(1034509412)
+			SetEventFlag(1034500732)
+			SetEventFlag(1034500736)
+			SetEventFlag(1034505015)
+			SetEventFlag(1034509361)
+			SetEventFlag(1034500715)
+			SetEventFlag(1034500710)
+			SetEventFlag(1034500700)
+			SetEventFlag(1034490701)
+			SetEventFlag(1034490700)
+			SetEventFlag(1034509413)
+			SetEventFlag(1034509418)
+
+			-- Exhausting Iji's dialogue in Ranni's Rise
+			SetEventFlag(1034509355)
+			SetEventFlag(1034509357)
+			SetEventFlag(1034509358)
+
+			-- Exhausting Blaidd's dialogue in Ranni's Rise
+			SetEventFlag(1034509205)
+			SetEventFlag(1045379208)
+
+			-- Exhausting Seluvis' dialogue in Ranni's Rise
+			SetEventFlag(1034509305)
+			SetEventFlag(1034509306)
+
+			-- Exhausting all 3 dialogues activating Ranni's next dialogue/step
+			SetEventFlag(1034509417)
+			SetEventFlag(1034500734)
+
+			-- Exhausting Ranni's dialogue after talking to all 3 spirits
+			SetEventFlag(1034509416)
+			SetEventFlag(1034500739)
+			SetEventFlag(1034500733)
+			SetEventFlag(1034502610)
+			SetEventFlag(1034505002)
+			SetEventFlag(1034505003)
+			SetEventFlag(1034505004)
+			SetEventFlag(1034500716)
+			SetEventFlag(1034503600)
+
+			-- Removing the wall around Ranni's Rise
+			SetEventFlag(1034500738, OFF)
+		end
+	},
+	{
+		name = "Sealing Tree",
+		enabled = true,
+		condition = function()
+			return (EventFlag(330) and not EventFlag(9140) and not EventFlag(72012))
+		end,
+		fix = function()
+			SetEventFlag(72012)    -- Grace: Enir-Ilim: Outer Wall
+			SetEventFlag(2110500)   -- Blocks warp sickness
+		end
+	}
+}
+
+local function runFix(rules)
+	print("--- Running Fast Travel Fix ---")
+	local fixCount = 0
+	for _, rule in ipairs(rules) do
+		if rule.enabled ~= false then
+			if rule.condition() then
+				print(string.format("triggered: [%s]", rule.name))
+				rule.fix()
+				fixCount = fixCount + 1 -- why does Lua not have += or ++, why does CE have to use Lua
+				if rule.needs_reload == true then
+					pending_reload = true
+					print(string.format("Rule [%s] requires character reload. Reloading...", rule.name))
+					ReloadCharacter()
+				end
+			end
+		end
+	end
+	if fixCount == 0 then
+		print("No issues found.")
+	end
+	if pending_reload == false then
+			print("--- Fast Travel Fix completed ---")
+	end
+end
+
+runFix(flagRules)
+disableMemrec(memrec)
+[DISABLE]
