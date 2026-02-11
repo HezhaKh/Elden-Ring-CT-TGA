@@ -25,7 +25,7 @@ local function ReloadCharacter()
 		local busy = readByte("[GameMan]+B80")
 		if busy == 0 then
 			print("Save complete. Reloading character.")
-			writeInteger("[GameMan]+B78",readInteger("[GameMan]+AC0"))
+			writeInteger("[GameMan]+B78", readInteger("[GameMan]+AC0"))
 			print("--- Fast Travel Fix completed ---")
 			charaReloadTimer.destroy()
 		end
