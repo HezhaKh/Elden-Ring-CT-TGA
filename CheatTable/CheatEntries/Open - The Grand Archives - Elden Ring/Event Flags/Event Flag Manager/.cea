@@ -1243,7 +1243,7 @@ local stateGroups = {
     {category = "Maps", name = "Leyndell, Royal Capital | Visible", flags = {
         FLAG(62031)
     }},
-    {category = "Maps", name = "Altus Plateur | Visible", flags = {
+    {category = "Maps", name = "Altus Plateau | Visible", flags = {
         FLAG(62030)
     }},
     {category = "Maps", name = "Mt. Gelmir | Visible", flags = {
