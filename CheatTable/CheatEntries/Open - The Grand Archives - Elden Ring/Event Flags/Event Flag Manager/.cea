@@ -1047,10 +1047,10 @@ local stateGroups = {
     {category = "Cookbook", name = "Missionary's Cookbook [7] | Unlocked", flags = {
         FLAG(68230)
     }},
-    {category = "Cookbook", name = "Nomadic warrior's Cookbook [1] | Unlocked", flags = {
+    {category = "Cookbook", name = "Nomadic Warrior's Cookbook [1] | Unlocked", flags = {
         FLAG(67000)
     }},
-    {category = "Cookbook", name = "Nomadic warrior's Cookbook [2] | Unlocked", flags = {
+    {category = "Cookbook", name = "Nomadic Warrior's Cookbook [2] | Unlocked", flags = {
         FLAG(67110)
     }},
     {category = "Cookbook", name = "Nomadic Warrior's Cookbook [3] | Unlocked", flags = {
