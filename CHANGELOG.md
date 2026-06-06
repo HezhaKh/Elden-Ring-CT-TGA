@@ -1,5 +1,8 @@
 # Changelog
 ## [Unreleased]
+### Changed
+ - by [Umgak](https://github.com/Umgak):
+   - The old Ranni's Tower Fix now fixes all known cases of the "Unable to travel" message erroneously appearing, and has been renamed "Fast Travel Fix"
 ### Fixed
  - Removed ID `3252` (Loretta) from "Kill all mobs"
  - "Remove Seamless Co-op items" script
