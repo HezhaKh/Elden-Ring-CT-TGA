@@ -3,8 +3,11 @@
 ### Fixed
  - Removed ID `3252` (Loretta) from "Kill all mobs"
  - "Remove Seamless Co-op items" script
- - by [Axd1x8a](https://github.com/FeeeeK)
+ - by [Axd1x8a](https://github.com/FeeeeK):
    - Kill all mobs not working in some cases
+ - by [Umgak](https://github.com/Umgak):
+   - Typos in Event Flag Manager
+   - Fix Demi-Human Queen Margot using the wrong event flags
 
 ## [v1.17.0] - 2025-08-04
 ### Added
