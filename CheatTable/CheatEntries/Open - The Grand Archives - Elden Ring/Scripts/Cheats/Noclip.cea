@@ -1,7 +1,8 @@
 // author: Dasaav
+// 1.16.2 offsets: Umgak
 {$lua}
 if syntaxcheck then return end
-address_version("1.16.0")
+address_version("1.16.2")
 {$asm}
 [ENABLE]
 {$c}
@@ -32,7 +33,7 @@ void* get_cs_pad_interface() {
     }
 
     return ((FD4PadManager_get_pad_interface)((uintptr_t)GetModuleHandle(NULL)
-        + 0x2414a0))(FD4PadManager, 0);
+        + 0x2413f0))(FD4PadManager, 0);
 }
 
 typedef void (*CSPad_get_xy_movement_input)(void*, MoveInputXY*, int, int);
@@ -70,7 +71,7 @@ float get_up_down_input(void* cs_pad) {
 
     if (cs_pad != NULL) {
         CSPad_is_key_pressed is_key_pressed =
-            (CSPad_is_key_pressed)((uintptr_t)GetModuleHandle(NULL) + 0x2664ff0);
+            (CSPad_is_key_pressed)((uintptr_t)GetModuleHandle(NULL) + 0x2665060);
 
         if (is_key_pressed(cs_pad, 16)) {
             input += 1.0f;
@@ -179,9 +180,9 @@ if (is_main_player(*(void**)((uintptr_t)physics_module + 0x08))) {
     }
 }
 {$asm}
-jmp $process+467999
+jmp $process+467899
 
-$process+467994:
+$process+467894:
 jmp physics_update_hook
 nop 4
 
@@ -189,7 +190,7 @@ nop 4
 [[[[WorldChrMan]+1E508]+190]+68]+1D3:
 db 0
 
-$process+467994:
+$process+467894:
 movaps xmm0,[rsp+40]
 movups [rbx+70],xmm0
 
