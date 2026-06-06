@@ -1,0 +1,16 @@
+<CheatEntry>
+  <ID>108267</ID>
+  <Description>"State"</Description>
+  <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">
+1:InActive
+3:Dead
+13:Active
+  </DropDownList>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>34</Offset>
+    <Offset>8E0</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>
