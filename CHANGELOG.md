@@ -1,5 +1,8 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - by [Umgak](https://github.com/Umgak):
+   - Missing Romina Fix script for players with broken event flags
 ### Changed
  - by [Umgak](https://github.com/Umgak):
    - The old Ranni's Tower Fix now fixes all known cases of the "Unable to travel" message erroneously appearing, and has been renamed "Fast Travel Fix"
