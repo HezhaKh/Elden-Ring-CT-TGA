@@ -1,0 +1,12 @@
+<CheatEntry>
+  <ID>108266</ID>
+  <Description>"Health"</Description>
+  <ShowAsSigned>1</ShowAsSigned>
+  <VariableType>4 Bytes</VariableType>
+  <Address>GameDataMan</Address>
+  <Offsets>
+    <Offset>30</Offset>
+    <Offset>8E0</Offset>
+    <Offset>8</Offset>
+  </Offsets>
+</CheatEntry>

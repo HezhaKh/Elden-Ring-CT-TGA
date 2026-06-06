@@ -1,0 +1,15 @@
+<CheatEntry>
+  <ID>108260</ID>
+  <Description>"RideGameData"</Description>
+  <Options moHideChildren="1"/>
+  <GroupHeader>1</GroupHeader>
+  <x-ce2fs-child-order>
+    <id id="108261"/>
+    <id id="108262"/>
+    <id id="108263"/>
+    <id id="108264"/>
+    <id id="108265"/>
+    <id id="108266"/>
+    <id id="108267"/>
+  </x-ce2fs-child-order>
+</CheatEntry>
