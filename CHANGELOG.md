@@ -1,5 +1,8 @@
 # Changelog
 ## [Unreleased]
+### Added
+ - by [Umgak](https://github.com/Umgak):
+   - Missing Romina Fix script for players with broken event flags
 ### Fixed
  - Removed ID `3252` (Loretta) from "Kill all mobs"
  - "Remove Seamless Co-op items" script
