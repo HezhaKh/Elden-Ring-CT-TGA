@@ -17,6 +17,7 @@
    - Fix "Reload Character" always loading slot 0
    - Fix small typos in Event Flag Manager
    - Fix Demi-Human Queen Margot using the wrong event flags in Event Flag Manager
+   - Update Noclip for 1.16.2
 
 ## [v1.17.0] - 2025-08-04
 ### Added
