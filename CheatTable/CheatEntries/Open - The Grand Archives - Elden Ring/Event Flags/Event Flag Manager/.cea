@@ -1047,10 +1047,10 @@ local stateGroups = {
     {category = "Cookbook", name = "Missionary's Cookbook [7] | Unlocked", flags = {
         FLAG(68230)
     }},
-    {category = "Cookbook", name = "Nomadic warrior's Cookbook [1] | Unlocked", flags = {
+    {category = "Cookbook", name = "Nomadic Warrior's Cookbook [1] | Unlocked", flags = {
         FLAG(67000)
     }},
-    {category = "Cookbook", name = "Nomadic warrior's Cookbook [2] | Unlocked", flags = {
+    {category = "Cookbook", name = "Nomadic Warrior's Cookbook [2] | Unlocked", flags = {
         FLAG(67110)
     }},
     {category = "Cookbook", name = "Nomadic Warrior's Cookbook [3] | Unlocked", flags = {
@@ -1243,7 +1243,7 @@ local stateGroups = {
     {category = "Maps", name = "Leyndell, Royal Capital | Visible", flags = {
         FLAG(62031)
     }},
-    {category = "Maps", name = "Altus Plateur | Visible", flags = {
+    {category = "Maps", name = "Altus Plateau | Visible", flags = {
         FLAG(62030)
     }},
     {category = "Maps", name = "Mt. Gelmir | Visible", flags = {
@@ -2532,7 +2532,7 @@ local stateGroups = {
         --FLAG(60450),              -- Growth Ban: Memory Slot 5 - 成長解禁：記憶スロット5, Disabled: No duplicate memory stones!
     }},
     {category = "Bosses", subcategory = "Mt. Gelmir", name = "Demi-Human Queen Margot | Defeated", flags = {
-        FLAG(1037530800),           -- isDefeated
+        FLAG(31090800),             -- isDefeated
         FLAG(9240),                 -- Defeat the boss m31_09 Cave 3-2 - ボス撃破 m31_09 洞窟３－２ (Loot, common funcs)
         FLAG(520400),               -- Loot already given
         FLAG(61240, ALWAYS_TRUE),   -- Defeat the boss m31_09 Cave 3-2 - ボス撃破 m31_09 洞窟３－２
