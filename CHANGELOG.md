@@ -1,10 +1,13 @@
 # Changelog
 ## [Unreleased]
+
+## [v1.18.0] - 2025-08-04
 ### Added
  - by [Umgak](https://github.com/Umgak):
    - Missing Romina Fix script for players with broken event flags
    - Add RideGameData structure (values are read-only)
 ### Changed
+ - Supported version to v1.16.2
  - by [Umgak](https://github.com/Umgak):
    - The old Ranni's Tower Fix now fixes all known cases of the "Unable to travel" message erroneously appearing, and has been renamed "Fast Travel Fix"
    - The Cheat Engine version check can now be skipped without crashing, and an option to disable the check is available
